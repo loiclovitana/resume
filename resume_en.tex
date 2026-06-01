@@ -1,0 +1,84 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+	a4paper, % Uncomment for A4 paper size (default is US letter)
+	11pt, % Default font size, can use 10pt, 11pt or 12pt
+]{resume} % Use the resume class
+
+\usepackage[T1]{fontenc} % T1 encoding: proper accents (Loïc) and Inconsolata italics
+\usepackage[scaled]{inconsolata} % Inconsolata: a clean monospace "console" font
+\renewcommand{\familydefault}{\ttdefault} % Use the monospace font for the whole document
+
+% Inline highlight: italic so it leads the bullet with less weight (Inconsolata has no semibold weight)
+\newcommand{\lead}[1]{{\underline{#1}}}
+
+%------------------------------------------------
+
+\name{Loïc Vandenberghe}
+
+\address{Route du Jura 41A \\ 1700 Fribourg} 
+\address{+41 78 209 65 75 \\ loic@vandenberghe.ch \\ loic.vandenberghe.ch}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+
+%----------------------------------------------------------------------------------------
+%	SKILLS SECTION
+%----------------------------------------------------------------------------------------
+
+
+\begin{rSection}{Skills}
+	\textbf{Software Development} \t Software architecture, Backend services,  Distributed systems, API design, Data modeling, Frontend design \\
+	\textbf{Data Systems} \t Relational database, Document \& objects storage, ETL \\
+	\textbf{Language and frameworks} \t FastAPI, React, Go, Spring, SSIS, T-SQL \\
+	\textbf{DevOps} Kurbenetes, Azure, Workflows CI/CD, Ansible, Docker 
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Experience}
+
+	\begin{rSubsection}{Anaxa}{2025 - Present}{Anaxa SA}{Geneva}
+		\item \lead{Automatic trading on crypto} Real time data analytics using clickhouse, backtesting implementation, copy trading services in GO, Web socket and API interface with different exchanges
+		\item \lead{DevOps} Access \& permission managements on infra with ansible,  Docker deployment, network management with NGINX. CI/CD configuration with github workflow
+		\item \lead{AI agent for premier league data analysis:} Integration of acces of precise sport data about players into AI agent (claude, gemini, ...) handling data access right. Stack: semantic layer using cubejs, backend python, frontend React
+		\item \lead{Automation of news extraction with AI:} Ingestions of newsletters, webcrawling and user documents to extract latest topics in the news with differents sources. 
+	\end{rSubsection}
+
+	\begin{rSubsection}{Senior Data Engineer}{2023 - 2025}{ELCA SA}{Pully}
+		\item \lead{Data migration expert of AHV/IV insurance data:} Implement data solutions based on business requirements; design migration pipelines and overall architecture; automate executions \& deployment of SSIS packages; train and lead team members.
+		\item \lead{Backend software developer:} Develop Spring Boot data synchronization tools; develop Spring Boot connection interfaces with REST APIs and Sedex endpoints.
+	\end{rSubsection}
+
+%------------------------------------------------
+
+	\begin{rSubsection}{Data Engineer}{2021 - 2023}{ELCA SA}{Lausanne}
+		\item \lead{Data migration engineer of AHV/IV insurance data:} Understand and document business requirements; design data models for the staging area; develop T-SQL stored procedures for ingestion, transformation and loading.
+		\item \lead{Chatbot integration and AI R\&D:} Understand user needs and business expertise; design conversation flows and answers; collect and generate data from call center and business experts; create and deploy automated data analysis and transformations on Microsoft Azure.
+	\end{rSubsection}
+
+%------------------------------------------------
+
+	\begin{rSubsection}{Project Intern}{2020 - 2021}{ELCA SA}{Lausanne}
+		\item Development of a machine learning solution for the iPension suite.
+	\end{rSubsection}
+
+\end{rSection}
+
+
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Education}
+	\textbf{Master of Science in Computer Science} EPFL, Lausanne \hfill 2021
+\end{rSection}
+
+\end{document}

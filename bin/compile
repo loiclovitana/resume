@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# Compile template.tex into build/template.pdf
+# No LaTeX is installed locally, so we compile inside a TeX Live container.
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+SRC="${1:-resume_en.tex}"
+IMAGE="texlive/texlive:latest"
+
+mkdir -p build
+
+# Prefer docker, fall back to podman.
+if command -v docker >/dev/null 2>&1; then
+    RUNNER=docker
+elif command -v podman >/dev/null 2>&1; then
+    RUNNER=podman
+else
+    echo "error: neither docker nor podman found" >&2
+    exit 1
+fi
+
+"$RUNNER" run --rm \
+    -v "$PWD:/work" -w /work \
+    "$IMAGE" \
+    latexmk -pdf -interaction=nonstopmode -halt-on-error \
+        -output-directory=build "$SRC"
+
+echo "==> build/$(basename "${SRC%.tex}").pdf"

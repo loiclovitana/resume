@@ -1,0 +1,1 @@
+compile document with `./bin/compile <document.tex>`
