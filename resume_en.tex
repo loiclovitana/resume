@@ -4,7 +4,7 @@
 
 \documentclass[
 	a4paper, % Uncomment for A4 paper size (default is US letter)
-	11pt, % Default font size, can use 10pt, 11pt or 12pt
+	10pt, % Default font size, can use 10pt, 11pt or 12pt
 ]{resume} % Use the resume class
 
 \usepackage{hyperref}
@@ -18,10 +18,10 @@
 
 %------------------------------------------------
 
-\name{Loïc Vandenberghe}
-
-\address{Route du Jura 41A \\ 1700 Fribourg} 
-\address{+41 78 209 65 75 \\ loic@vandenberghe.ch \\ \href{https://loic.vandenberghe.ch}{loic.vandenberghe.ch}}
+\leftinfo{\textbf{Loïc Vandenberghe}\\Fribourg, CH\\ Swiss\\ English, French}
+\centertop{Software Engineer}
+\centerbottom{M.Sc. Computer Science}
+\rightinfo{+41 78 209 65 75\\ loic@vandenberghe.ch\\ \href{https://loic.vandenberghe.ch}{loic.vandenberghe.ch}\\ \href{https://www.linkedin.com/in/loic-vdb}{linkedin.com/in/loic-vdb} \\ \href{https://github.vandenberghe.ch}{github.com/loiclovitana}}
 
 %----------------------------------------------------------------------------------------
 
@@ -34,10 +34,12 @@
 
 
 \begin{rSection}{Skills}
-	\textbf{Software Development} \t Software architecture, Backend services,  Distributed systems, API design, Data modeling, Frontend design \\
-	\textbf{Data Systems} \t Relational database, Document \& objects storage, ETL \\
-	\textbf{Languages and frameworks} \t FastAPI, React, Go, Spring, SSIS, T-SQL \\
-	\textbf{DevOps} \t Kubernetes, Azure, CI/CD, Ansible, Docker
+	\begin{tabular}{@{}p{0.25\linewidth} p{0.70\linewidth}@{}}
+		\textbf{Software Engineering}     & software architecture, backend services, distributed systems, API design, data modeling, testing \\
+		\textbf{Cloud \& DevOps}          & Ansible, Grafana, Azure, Docker, Kubernetes, Gihub workflows, CI/CD \\
+		\textbf{Languages \& Frameworks}  & Python, Java, Spring, Scala, TypeScript, SQL, Bash, Git \\
+		\textbf{Data Systems}             & relational databases, document stores, object storage, open table formats, message brokers \\
+	\end{tabular}
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
@@ -46,7 +48,7 @@
 
 \begin{rSection}{Experience}
 
-	\begin{rSubsection}{Anaxa}{2025 - Present}{Anaxa SA}{Geneva}
+	\begin{rSubsection}{Software Engineer}{2025 - Present}{Anaxa SA}{Geneva}
 		\item \lead{Crypto trading algorithms:} Designed and implemented a real-time data analytics pipeline using ClickHouse; built a backtesting engine and copy-trading microservice in Go; integrated WebSocket and REST APIs across multiple cryptocurrency exchanges.
 		\item \lead{Infrastructure \& DevOps:} Managed infrastructure access controls and provisioning with Ansible; orchestrated containerised deployments with Docker and NGINX reverse proxies; automated CI/CD pipelines with GitHub Actions.
 		\item \lead{AI-powered sports analytics agent:} Architected an LLM-based agent (Claude, Gemini) for Premier League player data analysis, exposing structured statistics through a CubeJS semantic layer with role-based access control.

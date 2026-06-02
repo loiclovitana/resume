@@ -50,68 +50,52 @@
 \usepackage{geometry} % Required for adjusting page dimensions and margins
 
 \geometry{
-	top=0.6in, % Top margin
-	bottom=0.6in, % Bottom margin
-	left=0.75in, % Left margin
-	right=0.75in, % Right margin
+	top=3em, % Top margin
+	bottom=3em, % Bottom margin
+	left=3em, % Left margin
+	right=3em, % Right margin
 	%showframe, % Uncomment to show how the type block is set on the page
 }
 
 %----------------------------------------------------------------------------------------
-%	NAME AND ADDRESS COMMANDS
+%	HEADER COMMANDS (positional)
 %----------------------------------------------------------------------------------------
 
-\newcommand{\name}[1]{\renewcommand{\name}{#1}} % Defines the \name command to set the user's name
+\newcommand{\leftinfo}[1]{\renewcommand{\leftinfo}{#1}}
+\newcommand{\centertop}[1]{\renewcommand{\centertop}{#1}}
+\newcommand{\centerbottom}[1]{\renewcommand{\centerbottom}{#1}}
+\newcommand{\rightinfo}[1]{\renewcommand{\rightinfo}{#1}}
 
-\newcommand{\addressSep}{$\diamond$} % Set default address separator to a diamond symbol
-
-% One, two or three address lines can be specified
-\let \@addressone \relax
-\let \@addresstwo \relax
-\let \@addressthree \relax
-
-% The \address command is used to set the first, second and third address lines (the last 2 are optional)
-\newcommand{\address}[1]{
-	\@ifundefined{@addressone}{ % If the first address line has not been set yet, set it
-		\def \@addressone {#1}
-	}{
-		\@ifundefined{@addresstwo}{ % If the second address line has not been set yet, set it
-			\def \@addresstwo {#1}
-		}{ % Otherwise, set the third address line
-			\def \@addressthree {#1}
+% \printHeader outputs the 3-column header
+\newcommand{\printHeader}{%
+	\vbox{%
+		\hbox to \textwidth{%
+			\begin{minipage}[t]{0.25\textwidth}%
+				\raggedright\leftinfo%
+			\end{minipage}%
+			\hfil%
+			\begin{minipage}[t]{0.48\textwidth}%
+				\centering
+				{\huge\bfseries\centertop}\\[1em]
+				\centerbottom
+			\end{minipage}%
+			\hfil%
+			\begin{minipage}[t]{0.25\textwidth}%
+				\raggedleft\rightinfo%
+			\end{minipage}%
 		}%
-	}
-}
-
-% \printaddress is used to style an address line (provided in the single parameter to the command)
-\newcommand{\printaddress}[1]{
-	\begingroup
-		\def \\ {\addressSep\ } % Redefine newlines (\\) to the address separator symbol so multiple lines of each address are output as a single line
-		\centerline{#1} % Output the centered address line
-	\endgroup
-	\par % End the paragraph to ensure correct spacing between lines
-	\smallskip % Vertical whitespace between address lines
-}
-
-% \printname is used to output the user's name in a large size
-\newcommand{\printname}{
-	\begingroup
-		\hfil{\MakeUppercase{\huge\bfseries\name}}\hfil % Style and output the user's name
-		\bigskip\break % Vertical whitespace below name
-	\endgroup
+	}%
+	\vskip\bigskipamount
 }
 
 %----------------------------------------------------------------------------------------
-%	OUTPUT THE NAME & ADDRESS LINES AUTOMATICALLY
+%	OUTPUT THE HEADER AUTOMATICALLY
 %----------------------------------------------------------------------------------------
 
 \let\ori@document=\document % Store the original \document command
 \renewcommand{\document}{
-	\ori@document  % Output the original \document command but add to it below
-	\printname % Output the user's name
-	\@ifundefined{@addressone}{}{\printaddress{\@addressone}} % Output the first address if specified
-	\@ifundefined{@addresstwo}{}{\printaddress{\@addresstwo}} % Output the second address if specified
-	\@ifundefined{@addressthree}{}{\printaddress{\@addressthree}} % Output the third address if specified
+	\ori@document % Output the original \document command but add to it below
+	\printHeader % Output the 3-column header
 }
 
 %----------------------------------------------------------------------------------------
@@ -124,12 +108,8 @@
 	\MakeUppercase{\textbf{#1}} % Section title
 	\medskip % Vertical whitespace
 	\hrule % Horizontal rule
-	\begin{list}{}{ % List to indent the entire content of the section
-		\setlength{\leftmargin}{1.5em} % Indent to the left of the list
-	}
-	\item[] % Empty list item to enable indentation
 }{
-	\end{list}
+	
 }
 
 %----------------------------------------------------------------------------------------
@@ -137,13 +117,12 @@
 %----------------------------------------------------------------------------------------
 
 \newenvironment{rSubsection}[4]{ % 4 parameters: company name, year(s) employed, job title and location
-	\textbf{#1} \hfill {#2} % Bold company name and date to the right
-	\ifthenelse{\equal{#3}{}}{}{ % If the third parameter is empty, don't output the job title and location line
-		\\ % Job title and location on a new line
-		\textit{#3} \hfill \textit{#4} % Output job title and location
-	}%
+	\noindent\begin{tabular*}{\linewidth}{@{}l@{\extracolsep{\fill}}r@{}}
+		\textbf{#1} & \textbf{#2}\\[-0.2em]
+		\ifthenelse{\equal{#3}{}}{}{\textit{#3} & \textit{#4}\\}
+	\end{tabular*}%
 	\smallskip % Vertical whitespace
-	\begin{list}{$\cdot$}{\leftmargin=0em} % \cdot used for bullets, no indentation
+	\begin{list}{}{\leftmargin=1em} % \cdot used for bullets, no indentation
 		\setlength{\itemsep}{-0.5em} \vspace{-0.5em} % Reduce vertical spacing between items in the list for a tighter look
 }{
 	\end{list}
