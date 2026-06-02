@@ -7,9 +7,11 @@
 	11pt, % Default font size, can use 10pt, 11pt or 12pt
 ]{resume} % Use the resume class
 
+\usepackage{hyperref}
 \usepackage[T1]{fontenc} % T1 encoding: proper accents (Loïc) and Inconsolata italics
 \usepackage[scaled]{inconsolata} % Inconsolata: a clean monospace "console" font
 \renewcommand{\familydefault}{\ttdefault} % Use the monospace font for the whole document
+
 
 % Inline highlight: italic so it leads the bullet with less weight (Inconsolata has no semibold weight)
 \newcommand{\lead}[1]{{\underline{#1}}}
@@ -19,7 +21,7 @@
 \name{Loïc Vandenberghe}
 
 \address{Route du Jura 41A \\ 1700 Fribourg} 
-\address{+41 78 209 65 75 \\ loic@vandenberghe.ch \\ loic.vandenberghe.ch}
+\address{+41 78 209 65 75 \\ loic@vandenberghe.ch \\ \href{https://loic.vandenberghe.ch}{loic.vandenberghe.ch}}
 
 %----------------------------------------------------------------------------------------
 
@@ -34,8 +36,8 @@
 \begin{rSection}{Skills}
 	\textbf{Software Development} \t Software architecture, Backend services,  Distributed systems, API design, Data modeling, Frontend design \\
 	\textbf{Data Systems} \t Relational database, Document \& objects storage, ETL \\
-	\textbf{Language and frameworks} \t FastAPI, React, Go, Spring, SSIS, T-SQL \\
-	\textbf{DevOps} Kurbenetes, Azure, Workflows CI/CD, Ansible, Docker 
+	\textbf{Languages and frameworks} \t FastAPI, React, Go, Spring, SSIS, T-SQL \\
+	\textbf{DevOps} \t Kubernetes, Azure, CI/CD, Ansible, Docker
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
@@ -45,28 +47,27 @@
 \begin{rSection}{Experience}
 
 	\begin{rSubsection}{Anaxa}{2025 - Present}{Anaxa SA}{Geneva}
-		\item \lead{Automatic trading on crypto} Real time data analytics using clickhouse, backtesting implementation, copy trading services in GO, Web socket and API interface with different exchanges
-		\item \lead{DevOps} Access \& permission managements on infra with ansible,  Docker deployment, network management with NGINX. CI/CD configuration with github workflow
-		\item \lead{AI agent for premier league data analysis:} Integration of acces of precise sport data about players into AI agent (claude, gemini, ...) handling data access right. Stack: semantic layer using cubejs, backend python, frontend React
-		\item \lead{Automation of news extraction with AI:} Ingestions of newsletters, webcrawling and user documents to extract latest topics in the news with differents sources. 
+		\item \lead{Crypto trading algorithms:} Designed and implemented a real-time data analytics pipeline using ClickHouse; built a backtesting engine and copy-trading microservice in Go; integrated WebSocket and REST APIs across multiple cryptocurrency exchanges.
+		\item \lead{Infrastructure \& DevOps:} Managed infrastructure access controls and provisioning with Ansible; orchestrated containerised deployments with Docker and NGINX reverse proxies; automated CI/CD pipelines with GitHub Actions.
+		\item \lead{AI-powered sports analytics agent:} Architected an LLM-based agent (Claude, Gemini) for Premier League player data analysis, exposing structured statistics through a CubeJS semantic layer with role-based access control.
 	\end{rSubsection}
 
 	\begin{rSubsection}{Senior Data Engineer}{2023 - 2025}{ELCA SA}{Pully}
-		\item \lead{Data migration expert of AHV/IV insurance data:} Implement data solutions based on business requirements; design migration pipelines and overall architecture; automate executions \& deployment of SSIS packages; train and lead team members.
-		\item \lead{Backend software developer:} Develop Spring Boot data synchronization tools; develop Spring Boot connection interfaces with REST APIs and Sedex endpoints.
+		\item \lead{AHV/IV insurance data migration:} Led migration of \textasciitilde100k client records across a compensation office and 2 cantonal offices; designed pipelines and overall architecture; automated execution \& deployment of SSIS packages; mentored and led junior team members.
+		\item \lead{Backend development:} Built Spring Boot data synchronisation services and REST/Sedex integration interfaces.
 	\end{rSubsection}
 
 %------------------------------------------------
 
 	\begin{rSubsection}{Data Engineer}{2021 - 2023}{ELCA SA}{Lausanne}
-		\item \lead{Data migration engineer of AHV/IV insurance data:} Understand and document business requirements; design data models for the staging area; develop T-SQL stored procedures for ingestion, transformation and loading.
-		\item \lead{Chatbot integration and AI R\&D:} Understand user needs and business expertise; design conversation flows and answers; collect and generate data from call center and business experts; create and deploy automated data analysis and transformations on Microsoft Azure.
+		\item \lead{AHV/IV insurance data migration:} Gathered and documented business requirements; designed staging area data models; developed T-SQL stored procedures for ingestion, transformation and loading.
+		\item \lead{Chatbot integration and AI R\&D:} Translated user needs into conversation flows; collected and generated training data from call center experts; built and deployed automated analysis pipelines on Microsoft Azure.
 	\end{rSubsection}
 
 %------------------------------------------------
 
-	\begin{rSubsection}{Project Intern}{2020 - 2021}{ELCA SA}{Lausanne}
-		\item Development of a machine learning solution for the iPension suite.
+	\begin{rSubsection}{Master Thesis Intern}{2020 - 2021}{ELCA SA}{Lausanne}
+		\item \lead{Income risk detection for self-employed (iPension):} Built a machine learning model to identify self-employed taxpayers at risk of under-declaring income; surfaced high-risk profiles in the iPension suite to prompt contribution re-estimation and reduce discrepancy with final tax assessments.
 	\end{rSubsection}
 
 \end{rSection}
