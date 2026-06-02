@@ -122,7 +122,7 @@
 		\ifthenelse{\equal{#3}{}}{}{\textit{#3} & \textit{#4}\\}
 	\end{tabular*}%
 	\smallskip % Vertical whitespace
-	\begin{list}{}{\leftmargin=1em} % \cdot used for bullets, no indentation
+	\begin{list}{\$}{\leftmargin=1em} % \cdot used for bullets, no indentation
 		\setlength{\itemsep}{-0.5em} \vspace{-0.5em} % Reduce vertical spacing between items in the list for a tighter look
 }{
 	\end{list}
