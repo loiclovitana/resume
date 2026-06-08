@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
-# Compile template.tex into build/template.pdf
+# Compile .tex files into build/<name>.pdf with aux files under build/<name>/
 # No LaTeX is installed locally, so we compile inside a TeX Live container.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-SRC="${1:-resume_en.tex}"
 IMAGE="texlive/texlive:latest"
 
 mkdir -p build
@@ -20,10 +19,20 @@ else
     exit 1
 fi
 
-"$RUNNER" run --rm \
-    -v "$PWD:/work" -w /work \
-    "$IMAGE" \
-    latexmk -pdf -interaction=nonstopmode -halt-on-error \
-        -output-directory=build "$SRC"
+# If no arguments given, compile all .tex files in the project root.
+if [[ $# -eq 0 ]]; then
+    set -- *.tex
+fi
 
-echo "==> build/$(basename "${SRC%.tex}").pdf"
+for SRC in "$@"; do
+    NAME="$(basename "${SRC%.tex}")"
+    mkdir -p "build/$NAME"
+    "$RUNNER" run --rm \
+        -v "$PWD:/work" -w /work \
+        "$IMAGE" \
+        latexmk -pdf -interaction=nonstopmode -halt-on-error \
+            -output-directory=build \
+            -auxdir="build/$NAME" \
+            "$SRC"
+    echo "==> build/$NAME.pdf"
+done

@@ -1,0 +1,99 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+	a4paper, % Uncomment for A4 paper size (default is US letter)
+	10pt, % Default font size, can use 10pt, 11pt or 12pt
+]{resume} % Use the resume class
+
+\usepackage{hyperref}
+\usepackage[T1]{fontenc} % T1 encoding: proper accents (Loïc) and Inconsolata italics
+\usepackage[scaled]{inconsolata} % Inconsolata: a clean monospace "console" font
+\renewcommand{\familydefault}{\ttdefault} % Use the monospace font for the whole document
+
+
+% Inline highlight: italic so it leads the bullet with less weight (Inconsolata has no semibold weight)
+\newcommand{\lead}[1]{{\underline{#1}}}
+
+%------------------------------------------------
+
+\leftinfo{\textbf{Loïc Vandenberghe}\\Fribourg, CH\\ Suisse\\ Anglais, Français}
+\centertop{Ingénieur Logiciel}
+\centerbottom{M.Sc. Informatique}
+\rightinfo{+41 78 209 65 75\\ loic@vandenberghe.ch\\ \href{https://loic.vandenberghe.ch}{loic.vandenberghe.ch}\\ \href{https://www.linkedin.com/in/loic-vdb}{linkedin.com/in/loic-vdb} \\ \href{https://github.vandenberghe.ch}{github.com/loiclovitana}}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+
+%----------------------------------------------------------------------------------------
+%	SKILLS SECTION
+%----------------------------------------------------------------------------------------
+
+
+\begin{rSection}{Compétences}
+	\begin{tabular}{@{}p{0.20\linewidth} p{0.78\linewidth}@{}}
+		\textbf{Ingénierie logicielle}      & architecture logicielle, backend, systèmes distribués, conception d'API, model de données, frontend \\
+		\textbf{Cloud \& DevOps}            & Ansible, Grafana, Azure, Docker, Kubernetes, workflows GitHub, CI/CD. \\
+		\textbf{Langages \& Frameworks}     & Python, Java, Spring, Scala, TypeScript, SQL, Bash, React, FastAPI. \\
+		\textbf{Systèmes de données}        & bases de données relationnelles et orientées documents, ETL, agent de message. \\
+	\end{tabular}
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Expérience}
+
+	\begin{rSubsection}{Ingénieur Logiciel}{2025 - Présent}{Anaxa SA}{Genève}
+		\item \lead{Algorithmes de trading crypto:} Conception et implémentation d'un pipeline d'analyse de données en temps réel avec ClickHouse; création d'un moteur de backtesting et d'un microservice de copy-trading en Go; intégration d'API WebSocket et REST sur plusieurs plateformes d'échange de cryptomonnaies.
+		\item \lead{Infrastructure \& DevOps:} Gestion des contrôles d'accès et de l'approvisionnement de l'infrastructure avec Ansible; orchestration des déploiements conteneurisés avec Docker et proxys inverses NGINX; automatisation des pipelines CI/CD avec GitHub Actions.
+		\item \lead{Agent d'analyse sportive propulsé par l'IA:} Architecture d'un agent basé sur les LLM (Claude, Gemini) pour l'analyse des données des joueurs de Premier League, exposant des statistiques structurées via une couche sémantique CubeJS avec un contrôle d'accès basé sur les rôles.
+	\end{rSubsection}
+
+	\begin{rSubsection}{Data Engineer Senior}{2023 - 2025}{ELCA SA}{Pully}
+		\item \lead{Migration de données d'assurance AVS/AI:} Migration d'environ 100k dossiers clients à travers une caisse de compensation et 2 offices cantonaux; conception des pipelines et de l'architecture globale; automatisation de l'exécution et du déploiement des paquets SSIS; mentorat et encadrement des membres juniors de l'équipe.
+		\item \lead{Développement backend:} Création de services de synchronisation de données avec Spring Boot et d'interfaces d'intégration REST/Sedex.
+	\end{rSubsection}
+
+%------------------------------------------------
+
+	\begin{rSubsection}{Data Engineer}{2021 - 2023}{ELCA SA}{Lausanne}
+		\item \lead{Migration de données d'assurance AVS/AI:} Recueil et documentation des besoins métiers; conception des modèles de données de la zone de préparation (staging area); développement de procédures stockées T-SQL pour l'ingestion, la transformation et le chargement.
+		\item \lead{Intégration de chatbot et R\&D en IA:} Traduction des besoins des utilisateurs en flux de conversation; Collecte, analyse et génération de données d'entrainement et de production. Intégration au site web de la caisse.
+	\end{rSubsection}
+%------------------------------------------------
+
+	\begin{rSubsection}{Stagiaire (Thèse de Master)}{2020 - 2021}{ELCA SA}{Lausanne}
+		\item \lead{Détection des risques de revenus pour les indépendants (iPension):} Création d'un modèle de machine learning pour identifier les contribuables indépendants présentant un risque de sous-déclaration de revenus; mise en évidence des profils à haut risque dans la suite iPension pour inciter à une réévaluation des cotisations et réduire l'écart avec les avis d'imposition finaux.
+	\end{rSubsection}
+
+\end{rSection}
+
+
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Formation}
+	\noindent\begin{tabular*}{\linewidth}{@{}l@{\extracolsep{\fill}}r@{}}
+		\textbf{Master of Science en Informatique} \textit{EPFL, Lausanne} & \textbf{2018-2021}\\
+		\textbf{Bachelor of Science en Informatique} \textit{EPFL, Lausanne} & \textbf{2015-2018}\\[-0.2em]
+	\end{tabular*}
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	PROJECTS SECTION
+%----------------------------------------------------------------------------------------
+\begin{rSection}{Projets}
+
+	\begin{tabular}{@{}p{0.20\linewidth} p{0.78\linewidth}@{}}
+		\textbf{Hockey Manager BI}     & Petite application pour vous donner un avantage sur \href{https://www.hockeymanager.ch/}{Hockey Manager}. Conseils d'achat et de vente, composition automatique de l'équipe et bien plus encore.
+	\end{tabular}
+\end{rSection}
+
+\end{document}
